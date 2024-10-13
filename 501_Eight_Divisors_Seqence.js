@@ -1,5 +1,5 @@
 let numberFound = 0;
-const primeNumbersSetLimit = 1000000;
+const primeNumbersSetLimit = 30000;
 const primeNumbersSet = [2, 3];
 
 const checkIfPrime = (numberToCheck) => {
@@ -50,10 +50,13 @@ const storePrimes = (numberOfPrimeToStore) => {
 }
 
 storePrimes(primeNumbersSetLimit);
+console.log('====================================');
+console.log(`Primes Generated`);
+console.log('====================================');
 
 let primeCounter = 0;
 let hasNotLimitExceeds = true;
-const limitToReach = 1000000000000;
+const limitToReach = 1000000;
 
 let numbersGotIt = 0;
 
@@ -82,8 +85,6 @@ while (hasNotLimitExceeds) {
     if (conditionController) break;
 
 }
-
-console.log(`Numbers Found ${numbersGotIt}`);
 
 let hasANotFound = true;
 let candidateAIndex = 0;
