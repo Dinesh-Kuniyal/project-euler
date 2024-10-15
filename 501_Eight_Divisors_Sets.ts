@@ -54,10 +54,11 @@ const storePrimeInSet = (countOfPrimeToStore: number): void => {
 }
 
 storePrimeInSet(primeNumbersRequired);
+console.log(`Prime Genererated`);
 
 
 let numbersFound: number = 0;
-const limitToReach: number = 1000000;
+const limitToReach: number = 1000;
 let cubePrimeCounter: number = 0;
 let hasNotLimitExceeds: boolean = true;
 
@@ -75,7 +76,9 @@ while (hasNotLimitExceeds) {
         if (cubePrimeValue === innerPrimeIteratorValue) continue;
 
         const cubeAndProductOfPrime = (cubePrimeValue ** 3) * innerPrimeIteratorValue;
+        
         if (cubeAndProductOfPrime > limitToReach) break;
+        console.log(`Cube Prime ${cubePrimeValue} Inner Iterator ${innerPrimeIteratorValue} Product ${cubeAndProductOfPrime}`);
 
         numbersFound++;
     }
@@ -84,6 +87,9 @@ while (hasNotLimitExceeds) {
     if (conditionController) hasNotLimitExceeds = false;
 }
 
+console.log('====================================');
+console.log(`First set completed`);
+console.log('====================================');
 
 let hasANotFound: boolean = true;
 let candidateAIndex: number = 0;
@@ -118,6 +124,7 @@ while (hasANotFound) {
             if (secondCandidateToProcess > Math.round(limitToReach / 6)) break;
 
             let productOfPrimes = firstCandidateToProcess * secondCandidateToProcess * thirdCandidateToProcess;
+            console.log(`First ${firstCandidateToProcess} Second ${secondCandidateToProcess} third ${thirdCandidateToProcess} Product ${productOfPrimes}`);
             if (productOfPrimes > limitToReach) break;
 
             if (firstCandidateToProcess === secondCandidateToProcess) continue;

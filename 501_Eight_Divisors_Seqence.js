@@ -1,5 +1,5 @@
 let numberFound = 0;
-const primeNumbersSetLimit = 30000;
+const primeNumbersSetLimit = 10000;
 const primeNumbersSet = [2, 3];
 
 const checkIfPrime = (numberToCheck) => {
@@ -56,7 +56,7 @@ console.log('====================================');
 
 let primeCounter = 0;
 let hasNotLimitExceeds = true;
-const limitToReach = 1000000;
+const limitToReach = 100;
 
 let numbersGotIt = 0;
 
@@ -132,14 +132,14 @@ while (hasANotFound) {
 
 }
 
-let finalStart = 1;
-let finalLoopFlag = true;
-while(finalLoopFlag) {
-    const numberToCheck = primeNumbersSet[finalStart - 1] ** 7;
+let primeNumbersIndex = 1;
+let hasCheckedAllPowers = true;
+while(hasCheckedAllPowers) {
+    const numberToCheck = primeNumbersSet[primeNumbersIndex - 1] ** 7;
     if(numberToCheck > limitToReach) break;
 
     numbersGotIt++;
-    finalStart++;
+    primeNumbersIndex++;
 }
 
 console.log(`Number got it ${numbersGotIt}`);
