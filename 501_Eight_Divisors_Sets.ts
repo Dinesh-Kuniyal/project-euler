@@ -5,18 +5,22 @@
 -- Count all the possible numbers formed by a ^ 7
 */
 
-const primeNumbersRequired: number = 1000000;
+const primeNumbersRequired: number = 10000000;
 const primeNumbersGeneratedSet: number[] = [2, 3];
 
 const checkIfPrime = (numberToCheck: number): boolean => {
     let isPrimeFound: boolean = true;
-    const numbersLimitToCheck: number = Math.round(Math.sqrt(numberToCheck)) + 1;
 
-    for (let divisiblityChecker: number = 3; divisiblityChecker < numbersLimitToCheck; divisiblityChecker += 2) {
-        if (numberToCheck % divisiblityChecker === 0) {
-            isPrimeFound = false;
-            break;
-        }
+    let primeArrayIndex = 0;
+    const maxPrimeValueToCheck = Math.round(Math.sqrt(numberToCheck)) + 1;
+
+    while(primeNumbersGeneratedSet.length > primeArrayIndex && isPrimeFound){
+        let currentTraversedPrime = primeNumbersGeneratedSet[primeArrayIndex];
+        primeArrayIndex++;
+
+        if(currentTraversedPrime > maxPrimeValueToCheck) break;
+
+        if(numberToCheck % currentTraversedPrime === 0) isPrimeFound = false;
     }
 
     return isPrimeFound;
@@ -78,7 +82,7 @@ while (hasNotLimitExceeds) {
         const cubeAndProductOfPrime = (cubePrimeValue ** 3) * innerPrimeIteratorValue;
         
         if (cubeAndProductOfPrime > limitToReach) break;
-        console.log(`Cube Prime ${cubePrimeValue} Inner Iterator ${innerPrimeIteratorValue} Product ${cubeAndProductOfPrime}`);
+        // console.log(`Cube Prime ${cubePrimeValue} Inner Iterator ${innerPrimeIteratorValue} Product ${cubeAndProductOfPrime}`);
 
         numbersFound++;
     }
@@ -124,7 +128,7 @@ while (hasANotFound) {
             if (secondCandidateToProcess > Math.round(limitToReach / 6)) break;
 
             let productOfPrimes = firstCandidateToProcess * secondCandidateToProcess * thirdCandidateToProcess;
-            console.log(`First ${firstCandidateToProcess} Second ${secondCandidateToProcess} third ${thirdCandidateToProcess} Product ${productOfPrimes}`);
+            // console.log(`First ${firstCandidateToProcess} Second ${secondCandidateToProcess} third ${thirdCandidateToProcess} Product ${productOfPrimes}`);
             if (productOfPrimes > limitToReach) break;
 
             if (firstCandidateToProcess === secondCandidateToProcess) continue;
